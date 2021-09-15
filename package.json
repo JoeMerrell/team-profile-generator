@@ -1,0 +1,29 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoeMerrell/team-profile-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoeMerrell/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/JoeMerrell/team-profile-generator#readme",
+  "devDependencies": {
+    "jest": "^27.0.5"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.1"
+  }
+}
