@@ -45,7 +45,7 @@ function addStaff() {
         } else if (role === "Intern") {
             roleInfo = "school name";
         } else {
-            roleInfo = "office phone number";
+            roleInfo = "office number";
         }
         inquirer.prompt([{
             message: `Please provide the member's ${roleInfo}:`,
@@ -92,6 +92,10 @@ function initHTML() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/css/style.css">
         <title>Team Profile</title>
     </head>
     <body>
@@ -121,8 +125,8 @@ function addHtml(member) {
             <div class="card mx-auto mb-3" style="width: 18rem">
             <h5 class="card-header">${name}<br /><br />Engineer</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${id}</li>
-                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">ID: ${email}</li>
+                <li class="list-group-item">Email Address: ${id}</li>
                 <li class="list-group-item">GitHub: ${gitHub}</li>
             </ul>
             </div>
@@ -133,27 +137,27 @@ function addHtml(member) {
             <div class="card mx-auto mb-3" style="width: 18rem">
             <h5 class="card-header">${name}<br /><br />Intern</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${id}</li>
-                <li class="list-group-item">Email Address: ${email}</li>
+                <li class="list-group-item">ID: ${email}</li>
+                <li class="list-group-item">Email Address: ${id}</li>
                 <li class="list-group-item">School: ${school}</li>
             </ul>
             </div>
         </div>`;
         } else {
-            const officePhone = member.getOfficeNumber();
+            const officeNumber = member.getOfficeNumber();
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 18rem">
             <h5 class="card-header">${name}<br /><br />Manager</h5>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${id}</li>
-                <li class="list-group-item">Email Address: ${email}</li>
-                <li class="list-group-item">Office Phone: ${officePhone}</li>
+                <li class="list-group-item">ID: ${email}</li>
+                <li class="list-group-item">Email Address: ${id}</li>
+                <li class="list-group-item">Office#: ${officeNumber}</li>
             </ul>
             </div>
         </div>`
         }
         console.log("adding team member");
-        fs.appendFile("./output/team.html", data, function (err) {
+        fs.appendFile("./dist/team-profiles.html", data, function (err) {
             if (err) {
                 return reject(err);
             };
@@ -170,7 +174,7 @@ function finishHtml() {
 </body>
 </html>`;
 
-    fs.appendFile("./output/team.html", html, function (err) {
+    fs.appendFile("./dist/team-profiles.html", html, function (err) {
         if (err) {
             console.log(err);
         };
