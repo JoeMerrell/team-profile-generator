@@ -100,7 +100,7 @@ function initHTML() {
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark mb-5">
-            <span class="navbar-brand mb-0 h1 w-100 text-center">Team Members</span>
+            <span class="navbar-brand mb-0 h1 w-100 text-center">Team Member Profiles</span>
         </nav>
         <div class="container">
             <div class="row">`;
@@ -150,7 +150,7 @@ function addHtml(member) {
             <h5 class="card-header">${name}<br /><br />Manager</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${email}</li>
-                <li class="list-group-item">Email Address: ${id}</li>
+                <li class="list-group-item">Email: ${id}</li>
                 <li class="list-group-item">Office#: ${officeNumber}</li>
             </ul>
             </div>
