@@ -9,12 +9,12 @@ const Intern = require('./lib/Intern');
 
 const employees = [];
 
-function initApp() {
-    startHtml();
-    addMember();
+function initialize() {
+    initHTML();
+    addStaff();
 }
 
-function addMember() {
+function addStaff() {
     inquirer.prompt([{
         message: "Enter team member's name",
         name: "name"
@@ -37,6 +37,7 @@ function addMember() {
         message: "Enter team member's email address",
         name: "email"
     }])
+
     .then(function({name, role, id, email}) {
         let roleInfo = "";
         if (role === "Engineer") {
@@ -57,9 +58,10 @@ function addMember() {
                 "yes",
                 "no"
             ],
-            name: "moreMembers"
+            name: "moreStaff"
         }])
-        .then(function({roleInfo, moreMembers}) {
+
+        .then(function({roleInfo, moreStaff}) {
             let newMember;
             if (role === "Engineer") {
                 newMember = new Engineer(name, id, email, roleInfo);
@@ -71,8 +73,8 @@ function addMember() {
             employees.push(newMember);
             addHtml(newMember)
             .then(function() {
-                if (moreMembers === "yes") {
-                    addMember();
+                if (moreStaff === "yes") {
+                    addStaff();
                 } else {
                     finishHtml();
                 }
@@ -82,15 +84,7 @@ function addMember() {
     });
 }
 
-// function renderHtml(memberArray) {
-//     startHtml();
-//     for (const member of memberArray) {
-//         addHtml(member);
-//     }
-//     finishHtml();
-// }
-
-function startHtml() {
+function initHTML() {
     const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -102,7 +96,7 @@ function startHtml() {
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark mb-5">
-            <span class="navbar-brand mb-0 h1 w-100 text-center">Team Profile</span>
+            <span class="navbar-brand mb-0 h1 w-100 text-center">Team Members</span>
         </nav>
         <div class="container">
             <div class="row">`;
@@ -167,11 +161,6 @@ function addHtml(member) {
         });
     });
     
-            
-    
-        
-    
-    
 }
 
 function finishHtml() {
@@ -189,10 +178,5 @@ function finishHtml() {
     console.log("end");
 }
 
-// addMember();
-// startHtml();
-// addHtml("hi")
-// .then(function() {
-// finishHtml();
-// });
-initApp();
+
+initialize();
