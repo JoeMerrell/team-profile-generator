@@ -16,12 +16,12 @@ function initialize() {
 
 function addStaff() {
     inquirer.prompt([{
-        message: "Enter team member's name",
+        message: "Enter team member name:",
         name: "name"
     },
     {
         type: "list",
-        message: "Select team member's role",
+        message: "Choose team member's role:",
         choices: [
             "Engineer",
             "Intern",
@@ -30,11 +30,11 @@ function addStaff() {
         name: "role"
     },
     {
-        message: "Enter team member's id",
+        message: "What is the team member's ID?",
         name: "id"
     },
     {
-        message: "Enter team member's email address",
+        message: "Provide the team member's email address:",
         name: "email"
     }])
 
@@ -48,12 +48,12 @@ function addStaff() {
             roleInfo = "office phone number";
         }
         inquirer.prompt([{
-            message: `Enter team member's ${roleInfo}`,
+            message: `Please provide the member's ${roleInfo}:`,
             name: "roleInfo"
         },
         {
             type: "list",
-            message: "Would you like to add more team members?",
+            message: "Would you like to add more members to the team?",
             choices: [
                 "yes",
                 "no"
@@ -100,7 +100,7 @@ function initHTML() {
         </nav>
         <div class="container">
             <div class="row">`;
-    fs.writeFile("./output/team.html", html, function(err) {
+    fs.writeFile("./dist/team-profiles.html", html, function(err) {
         if (err) {
             console.log(err);
         }
