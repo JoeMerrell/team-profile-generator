@@ -14,6 +14,8 @@ function initialize() {
     addStaff();
 }
 
+// Gather employee info 
+
 function addStaff() {
     inquirer.prompt([{
         message: "Enter team member name:",
@@ -84,6 +86,8 @@ function addStaff() {
     });
 }
 
+// HTML (template literal) - head/body
+
 function initHTML() {
     const html = `<!DOCTYPE html>
     <html lang="en">
@@ -112,6 +116,8 @@ function initHTML() {
     console.log("start");
 }
 
+// HTML (template literal) - Engineer, Intern, Manager
+
 function addHtml(member) {
     return new Promise(function(resolve, reject) {
         const name = member.getName();
@@ -124,7 +130,7 @@ function addHtml(member) {
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 18rem">
             <h5 class="card-header">${name}<br /><br />Engineer</h5>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-item">
                 <li class="list-group-item">ID: ${email}</li>
                 <li class="list-group-item">Email: ${id}</li>
                 <li class="list-group-item">GitHub: ${gitHub}</li>
@@ -136,7 +142,7 @@ function addHtml(member) {
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 18rem">
             <h5 class="card-header">${name}<br /><br />Intern</h5>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-item">
                 <li class="list-group-item">ID: ${email}</li>
                 <li class="list-group-item">Email: ${id}</li>
                 <li class="list-group-item">School: ${school}</li>
@@ -148,7 +154,7 @@ function addHtml(member) {
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 18rem">
             <h5 class="card-header">${name}<br /><br />Manager</h5>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-item">
                 <li class="list-group-item">ID: ${email}</li>
                 <li class="list-group-item">Email: ${id}</li>
                 <li class="list-group-item">Office: ${officeNumber}</li>
