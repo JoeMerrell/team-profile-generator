@@ -7,6 +7,6 @@ test('checks the contents of Manager object', () => {
     expect(manager.name).toBe('Mary Jones');
     expect(manager.email).toBe('mary@jones.com');
     expect(manager.id).toBe('111111');
-    expect(manager.office).toBe('36C');
+    expect(manager.officeNumber).toBe('36C');
 
 });

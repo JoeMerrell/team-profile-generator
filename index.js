@@ -91,16 +91,16 @@ function initHTML() {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
         <title>Team Profile</title>
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark mb-5">
-            <span class="navbar-brand mb-0 h1 w-100 text-center">Team Member Profiles</span>
+            <span class="navbar-brand mb-0 h1 w-100 text-center text-light">Team Member Profiles</span>
         </nav>
         <div class="container">
             <div class="row">`;
@@ -126,7 +126,7 @@ function addHtml(member) {
             <h5 class="card-header">${name}<br /><br />Engineer</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${email}</li>
-                <li class="list-group-item">Email Address: ${id}</li>
+                <li class="list-group-item">Email: ${id}</li>
                 <li class="list-group-item">GitHub: ${gitHub}</li>
             </ul>
             </div>
@@ -138,7 +138,7 @@ function addHtml(member) {
             <h5 class="card-header">${name}<br /><br />Intern</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${email}</li>
-                <li class="list-group-item">Email Address: ${id}</li>
+                <li class="list-group-item">Email: ${id}</li>
                 <li class="list-group-item">School: ${school}</li>
             </ul>
             </div>
@@ -151,12 +151,12 @@ function addHtml(member) {
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${email}</li>
                 <li class="list-group-item">Email: ${id}</li>
-                <li class="list-group-item">Office#: ${officeNumber}</li>
+                <li class="list-group-item">Office: ${officeNumber}</li>
             </ul>
             </div>
         </div>`
         }
-        console.log("adding team member");
+        console.log("Team member added");
         fs.appendFile("./dist/team-profiles.html", data, function (err) {
             if (err) {
                 return reject(err);
@@ -179,7 +179,7 @@ function finishHtml() {
             console.log(err);
         };
     });
-    console.log("end");
+    console.log("HTML Page Created!");
 }
 
 
